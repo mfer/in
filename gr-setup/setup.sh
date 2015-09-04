@@ -1,8 +1,5 @@
 #!/bin/bash
-#sudo apt-get install cmake libboost-all-dev libgnuradio-runtime python-matplotlib #libzmq1-dev
-
-
-cd /tmp
+cd ~
 wget http://www.sbrac.org/files/build-gnuradio && chmod a+x ./build-gnuradio && ./build-gnuradio
 
 git clone https://github.com/bastibl/gr-foo.git

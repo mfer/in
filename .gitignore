@@ -33,4 +33,5 @@ gr-samples/transceiver_myTX.py
 gr-samples/transceiver_onlyTX.py
 gr-samples/transceiver_onlyRx.py
 
-gr-setup/gr-ieee802-15-4/
+#Directories and Files generated during gnuradio built
+gr-setup/*

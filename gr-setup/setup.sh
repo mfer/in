@@ -1,5 +1,4 @@
 #!/bin/bash
-cd ~
 wget http://www.sbrac.org/files/build-gnuradio && chmod a+x ./build-gnuradio && ./build-gnuradio
 
 git clone https://github.com/bastibl/gr-foo.git

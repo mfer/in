@@ -12,4 +12,4 @@ Intelligent Networks:
 Setup gnuradio
 ==
 
-    cd in/gnuradio/setup/gr && ./gr.sh
+    cd in/gnuradio/setup/ && ./gr.sh

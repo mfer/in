@@ -27,11 +27,12 @@
 *.out
 *.app
 
-#Files generated using gnuradio on *.grc
-gr-samples/transceiver.py
-gr-samples/transceiver_myTX.py
-gr-samples/transceiver_onlyTX.py
-gr-samples/transceiver_onlyRx.py
+# Files generated using gnuradio on *.grc
+#gr-samples/transceiver.py
+#gr-samples/transceiver_myTX.py
+#gr-samples/transceiver_onlyTX.py
+#gr-samples/transceiver_onlyRx.py
+*.py
 
-#Directories and Files generated during gnuradio built
-gr-setup/*
+# Files generated during gnuradio built
+gnuradio/setup/

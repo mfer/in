@@ -36,3 +36,6 @@
 
 # Files generated during gnuradio built
 gnuradio/setup/
+
+# Files generated during gnuradio module and block creation
+sdr/gr-netstat/workspace/

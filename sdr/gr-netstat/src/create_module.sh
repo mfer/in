@@ -1,57 +1,38 @@
 #!/bin/bash
 #MODULE=$1
-MODULE='AAA'
+MODULE='moduleName'
+
+cd ../workspace
 gr_modtool newmod $MODULE
 cd 'gr-'$MODULE
-gr_modtool add -t sync -l python < 'bla_py_ff
-bla
-n'
+echo 'blockName_py_ff
+blockName
+n' > gr_modtool_add_answers
+gr_modtool add -t sync -l python < gr_modtool_add_answers
 
 echo '<?xml version="1.0"?>
 <block>
-  <name>counter_py_ff</name>
-  <key>netstat_counter_py_ff</key>
-  <category>netstat</category>
-  <import>import netstat</import>
-  <make>netstat.counter_py_ff($counter)</make>
-  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
-       Sub-nodes:
-       * name
-       * key (makes the value accessible as $keyname, e.g. in the make node)
-       * type
-  <param>
-    <name>...</name>
-    <key>...</key>
-    <type>...</type>
-  </param>-->
-
-  <!-- Make one 'sink' node per input. Sub-nodes:
-       * name (an identifier for the GUI)
-       * type
-       * vlen
-       * optional (set to 1 for optional inputs) -->
+  <name>blockName_py_ff</name>
+  <key>moduleName_blockName_py_ff</key>
+  <category>moduleName</category>
+  <import>import moduleName</import>
+  <make>moduleName.blockName_py_ff($blockName)</make>
   <sink>
     <name>in</name>
     <type>float</type>
   </sink>
-
-  <!-- Make one 'source' node per output. Sub-nodes:
-       * name (an identifier for the GUI)
-       * type
-       * vlen
-       * optional (set to 1 for optional inputs) -->
   <source>
     <name>out</name>
     <type>float</type>
   </source>
 </block>
-' > './grc/'$MODULE'_bla.xml'
+' > './grc/'$MODULE'_blockName_py_ff.xml'
 
 
 echo '#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Copyright 2015 <+YOU OR YOUR COMPANY+>.
+# Copyright 2015 <manassesferreira at dcc dot ufmg>.
 #
 # This is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -72,30 +53,30 @@ echo '#!/usr/bin/env python
 import numpy
 from gnuradio import gr
 
-class counter_py_ff(gr.sync_block):
+class blockName_py_ff(gr.sync_block):
     """
-    docstring for block counter_py_ff
+    docstring for block blockName_py_ff
     """
     contador = 0
 
     def __init__(self, counter):
         gr.sync_block.__init__(self,
-            name="counter_py_ff",
-            in_sig =[numpy.float32],#in_sig=[<+numpy.float+>],
-            out_sig = [numpy.float32])#out_sig=[<+numpy.float+>])
-
+            name="blockName_py_ff",
+            in_sig =[numpy.float32],
+            out_sig = [numpy.float32])
 
     def work(self, input_items, output_items):
         in0 = input_items[0]
         out = output_items[0]
-        # <+signal processing here+>
         self.contador = self.contador + 1
         out[:] = in0 * self.contador
         print self.contador
-        #out[:] = in0
         return len(output_items[0])
-' > ./python/bla.py
+' > ./python/blockName_py_ff.py
 
 mkdir build
 cd build
-cmake ../ && make && sudo make install && sudo ldconfig
+cmake ../
+make
+sudo make install
+sudo ldconfig

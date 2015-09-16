@@ -1,23 +1,25 @@
 #!/bin/bash
 #MODULE=$1
-MODULE='ModuleName'
+MODULE='ModuleName2'
+BLOCK='BlockName2'
 
+rm -rf ../workspace
 mkdir ../workspace
 cd ../workspace
 gr_modtool newmod $MODULE
 cd 'gr-'$MODULE
-echo 'BlockName_py_ff
-BlockName
+echo $BLOCK'_py_ff
+'$BLOCK'
 n' > gr_modtool_add_answers
 gr_modtool add -t sync -l python < gr_modtool_add_answers
 
 echo '<?xml version="1.0"?>
 <block>
-  <name>BlockName_py_ff</name>
-  <key>ModuleName_BlockName_py_ff</key>
-  <category>ModuleName</category>
-  <import>import ModuleName</import>
-  <make>ModuleName.BlockName_py_ff($BlockName)</make>
+  <name>'$BLOCK'_py_ff</name>
+  <key>'$MODULE'_'$BLOCK'_py_ff</key>
+  <category>'$MODULE'</category>
+  <import>import '$MODULE'</import>
+  <make>'$MODULE'.'$BLOCK'_py_ff($'$BLOCK')</make>
   <sink>
     <name>in</name>
     <type>float</type>
@@ -27,7 +29,7 @@ echo '<?xml version="1.0"?>
     <type>float</type>
   </source>
 </block>
-' > './grc/'$MODULE'_BlockName_py_ff.xml'
+' > './grc/'$MODULE'_'$BLOCK'_py_ff.xml'
 
 
 echo '#!/usr/bin/env python
@@ -54,15 +56,15 @@ echo '#!/usr/bin/env python
 import numpy
 from gnuradio import gr
 
-class BlockName_py_ff(gr.sync_block):
+class '$BLOCK'_py_ff(gr.sync_block):
     """
-    docstring for block BlockName_py_ff
+    docstring for block '$BLOCK'_py_ff
     """
     contador = 0
 
     def __init__(self, counter):
         gr.sync_block.__init__(self,
-            name="BlockName_py_ff",
+            name="'$BLOCK'_py_ff",
             in_sig =[numpy.float32],
             out_sig = [numpy.float32])
 
@@ -73,8 +75,9 @@ class BlockName_py_ff(gr.sync_block):
         out[:] = in0 * self.contador
         print self.contador
         return len(output_items[0])
-' > ./python/BlockName_py_ff.py
+' > './python/'$BLOCK'_py_ff.py'
 
+rm -rf build
 mkdir build
 cd build
 cmake ../

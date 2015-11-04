@@ -21,7 +21,7 @@ Configuration:
     GRC
     Version:    3.7.8
     Instalation with the build-radio script. 
-        (more details at gnuradio/setup/gr.sh)
+        (more details at in/gnuradio/setup/gr.sh)
     
 
 Also,	to	simplify	things,	every	student	should	provide	a virtual	 machine	 image	 of	 the	 software	 used	 in	 the	 project.	 This	 makes	future	 projects	 and	 demonstrations	 even	 easier.	 As	 an	 example,	 your project	could	be	used	to	teach	networking	to	undergrads.

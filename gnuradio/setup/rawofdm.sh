@@ -1,4 +1,19 @@
 #!/bin/bash
+#installing gnuradio3.3
+wget -c http://gnuradio.org/releases/gnuradio/gnuradio-3.3.0.tar.gz
+tar -xzf gnuradio-3.3.0.tar.gz
+cd gnuradio-3.3.0
+sudo ./bootstrap
+sudo ./configure --prefix $HOME \
+  --enable-{gnuradio-core,usrp2} \
+  --disable-{usrp,docs,mblock,vrt} \
+  --disable-gr-{atsc,{gsm-fr,cvsd}-vocoder,trellis,msdd6000,radio-astronomy,pager} \
+  --disable-gr-{audio-{oss,alsa,jack,portaudio},video-sdl,qtgui} \
+  --with-boost-libdir=/usr/lib/x86_64-linux-gnu
+#Component gnuradio-core requires gruel, which is not being built or specified via pre-installed files.
+make check && make install
+
+
 #http://people.csail.mit.edu/szym/rawofdm/
 wget -c http://people.csail.mit.edu/szym/rawofdm/rawofdm.tgz
 tar xvzf rawofdm.tgz

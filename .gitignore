@@ -39,3 +39,6 @@ gnuradio/setup/
 
 # Files generated during gnuradio module and block creation
 sdr/gr-netstat/workspace/
+
+# Files of IDE
+sdn/src/intentSwitch/.idea/

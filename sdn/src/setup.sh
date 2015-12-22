@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#ATTENTION: this routine needs the docker container
+#ATTENTION: this routine needs the docker container ---> available at https://mega.nz/#!SVBRXD7K
 #____ to start the docker VM
 xterm -e ./start_onos.sh &
 echo "waiting ONOS initialization"
